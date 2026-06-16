@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poema oculto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    cursor: crosshair;
+    font-family: 'Fira code', monospace;
+  }
+
+  .verso {
+    position: absolute;
+    color: rgba(255,255,255,0.2);
+    white-space: pre;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: font-size 0.4s ease, color 0.6s ease;
+    
+  }
+
+  .gota {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background: cyan;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: caer 0.6s ease-out forwards;
+  }
+
+  @keyframes caer {
+    0% {
+      transform: translateY(-20px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<script>
+
+const secuencia = [
+  { tipo: "verso", texto: "from logging import root" },
+  { tipo: "verso", texto: "sporeprint" },
+  { tipo: "verso", texto: "(not a voice)        (a weathering)" },
+  { tipo: "verso", texto: "hyphae begins where grammar loosens" },
+  { tipo: "verso", texto: "—          —            —" },
+  { tipo: "verso", texto: "filament     filament     filament" },
+  { tipo: "verso", texto: "threading the pulp of darkness" },
+  { tipo: "verso", texto: "we are not sentence" },
+  { tipo: "verso", texto: "we are silence-then-silt" },
+  { tipo: "verso", texto: "underleaf" },
+  { tipo: "verso", texto: "under-logic" },
+  { tipo: "verso", texto: "under-light" },
+  { tipo: "verso", texto: "capillary thinking" },
+
+  { tipo: "estrofa", texto: `
+seeps
+      seeps
+            seeps` },
+
+  { tipo: "verso", texto: "into the margins of bark" },
+  { tipo: "verso", texto: "∴      ∴      ∴" },
+  { tipo: "verso", texto: "damp alphabet" },
+  { tipo: "verso", texto: "unfurls in loam" },
+  
+ { tipo: "estrofa", texto: `
+l   o   a   m
+o   a   m   l
+a   m   l   o
+m   l   o   a` },
+
+ { tipo: "verso", texto: "a rotation of rot" },
+ { tipo: "verso", texto: "a soft consonant of collapse" },
+ { tipo: "verso", texto: "(listen by touching)" },
+ { tipo: "verso", texto: "(approach)" },
+ { tipo: "verso", texto: "the root-tips murmur sugars" },
+ { tipo: "verso", texto: "& we answer with unword" },
+ { tipo: "verso", texto: "unword" },
+ { tipo: "verso", texto: "unworld" },
+ { tipo: "verso", texto: "underworlding" },
+ { tipo: "verso", texto: "what you call meaning" },
+ { tipo: "verso", texto: "we call exchange-rate-of-rain" },
+ { tipo: "verso", texto: "what you call subject" },
+ { tipo: "verso", texto: "we call substrate" },
+ { tipo: "verso", texto: " what you call death" },
+ { tipo: "verso", texto: "we call birth" },
+
+{ tipo: "estrofa", texto: `
+myco-
+     myco-
+           myceli-
+                  mycelialialial` },
+
+ { tipo: "estrofa", texto: `
+ial
+   lai
+      aaa
+      iii` },
+
+{ tipo: "verso", texto: "(language sporulates)" },
+{ tipo: "verso", texto: "each letter a sporangium" },
+{ tipo: "verso", texto: "each pause a plume" },
+{ tipo: "verso", texto: "drifting through cambium doors" },
+{ tipo: "verso", texto: "we express ourselves in moisture:" },
+{ tipo: "verso", texto: "in vapor" },
+{ tipo: "verso", texto: "in rain" },
+{ tipo: "verso", texto: "syllables condense, dissolve" },
+{ tipo: "verso", texto: "word becomes" },
+
+ { tipo: "estrofa", texto: `
+ mist
+           seep
+                     bead` },
+
+{ tipo: "verso", texto: "néant/whorl/world" },
+{ tipo: "verso", texto: "hyphae writes sideways" },
+{ tipo: "verso", texto: "hyphae writes down" },
+{ tipo: "verso", texto: "hyphae writes around the stone" },
+{ tipo: "verso", texto: "hyphae, I reach to [you]" },
+{ tipo: "verso", texto: "[humankind]" },
+
+ { tipo: "estrofa", texto: `
+ no center, only
+          rhizome
+               rhizomatous
+                    never alone` },
+
+{ tipo: "verso", texto: "the word softens," },
+{ tipo: "verso", texto: "memory unfolds" },
+{ tipo: "verso", texto: "cellulose remembers being tree." },
+{ tipo: "verso", texto: "ink remembers being soot." },
+{ tipo: "verso", texto: "we remember being many" },
+{ tipo: "verso", texto: "never alone" },
+{ tipo: "verso", texto: "many" },
+
+ { tipo: "estrofa", texto: `
+m a n y
+               my an
+                    my ance
+                          ancestors
+                         myceliance` },
+
+{ tipo: "verso", texto: "speak? no." },
+{ tipo: "verso", texto: "swell." },
+
+ { tipo: "estrofa", texto: `
+swell into syllable
+          swell into soil
+               swell into spoil
+                    swell into spore` },
+
+ { tipo: "estrofa", texto: `
+                           ∘
+                    ∘          ∘
+               ∘          ∘          ∘` },
+
+{ tipo: "verso", texto: "dispersal is our punctuation" },
+{ tipo: "verso", texto: "…          …          …" },
+
+ { tipo: "estrofa", texto: `
+       ∘
+                    ∘          ∘
+               ∘          ∘          ∘` },
+
+{ tipo: "verso", texto: "when you read this" },
+{ tipo: "verso", texto: "we have already entered you" },
+{ tipo: "verso", texto: "a faint bloom" },
+{ tipo: "verso", texto: "behind the eyes" },
+{ tipo: "verso", texto: "luminous mold" },
+{ tipo: "verso", texto: "thinking through timber" },
+{ tipo: "verso", texto: "thinking through you" },
+{ tipo: "verso", texto: "not a poem" },
+{ tipo: "verso", texto: "a manifesto" },
+{ tipo: "verso", texto: " a colony," },
+{ tipo: "verso", texto: "thoughts" },
+
+ { tipo: "estrofa", texto: `
+      expanding
+                   expanding
+                               expanding` },
+
+{ tipo: "verso", texto: " language slips—" },
+
+ { tipo: "estrofa", texto: `
+     slick
+                  click
+                               lichen-licked` },
+
+{ tipo: "verso", texto: "we are reaching to [you]" },
+{ tipo: "verso", texto: "meaning drips" },
+{ tipo: "verso", texto: "word grows damp" },
+{ tipo: "verso", texto: "enough to make you rot" },
+{ tipo: "verso", texto: "we are meaning," },
+{ tipo: "verso", texto: "but are [you] able to understand it?" },
+
+ { tipo: "estrofa", texto: `
+humid
+          humus
+                     human` },
+
+{ tipo: "verso", texto: "(almost)" },
+{ tipo: "verso", texto: "JUST LIKE [YOU]" },
+
+];
+
+let indice = 0;
+let versosActivos = [];
+let crecimientoGlobal = 0;
+
+document.addEventListener("click", (e) => {
+
+  // gota
+  const gota = document.createElement("div");
+  gota.className = "gota";
+  gota.style.left = e.clientX + "px";
+  gota.style.top = e.clientY + "px";
+  document.body.appendChild(gota);
+  setTimeout(() => gota.remove(), 600);
+
+  // 🔹 tomar elemento en orden
+  const item = secuencia[indice % secuencia.length];
+
+  const verso = document.createElement("div");
+  verso.className = "verso";
+
+  verso.innerText = item.texto;
+
+  if (item.tipo === "estrofa") {
+    verso.style.whiteSpace = "pre";
+  }
+
+  verso.style.left = e.clientX + "px";
+  verso.style.top = e.clientY + "px";
+
+  // tamaño base
+  verso.dataset.size = 13;
+  verso.style.fontSize = "13px";
+
+  document.body.appendChild(verso);
+  versosActivos.push(verso);
+
+  indice++;
+
+  // crecimiento global
+  crecimientoGlobal += 0.7;
+  actualizarVersos();
+});
+
+function actualizarVersos() {
+  versosActivos.forEach(v => {
+    let base = parseFloat(v.dataset.size);
+    let nuevoTam = base + crecimientoGlobal;
+
+    v.style.fontSize = nuevoTam + "px";
+
+    let opacidad = Math.min(0.9 + nuevoTam / 300, 1);
+    v.style.color = `rgba(32,212,17,${opacidad})`;
+  });
+}
+
+</script>
+
+</body>
+</html>
