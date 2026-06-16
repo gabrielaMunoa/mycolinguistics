@@ -223,7 +223,6 @@ let crecimientoGlobal = 0;
 
 document.addEventListener("click", (e) => {
 
-  // gota
   const gota = document.createElement("div");
   gota.className = "gota";
   gota.style.left = e.clientX + "px";
@@ -231,7 +230,6 @@ document.addEventListener("click", (e) => {
   document.body.appendChild(gota);
   setTimeout(() => gota.remove(), 600);
 
-  // 🔹 tomar elemento en orden
   const item = secuencia[indice % secuencia.length];
 
   const verso = document.createElement("div");
@@ -246,7 +244,6 @@ document.addEventListener("click", (e) => {
   verso.style.left = e.clientX + "px";
   verso.style.top = e.clientY + "px";
 
-  // tamaño base
   verso.dataset.size = 13;
   verso.style.fontSize = "13px";
 
@@ -255,7 +252,6 @@ document.addEventListener("click", (e) => {
 
   indice++;
 
-  // crecimiento global
   crecimientoGlobal += 0.7;
   actualizarVersos();
 });
